@@ -2,10 +2,13 @@ import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.css';
 import { uuid } from 'uuidv4';
+import api from '../api/contacts';
 
 import Header from './Header';
 import AddContact from './AddContact';
 import ContactList from './ContactList';
+import ContactDetail from './ContactDetail';
+import DeletePopup from './DeletePopup';
 
 function App() {
   const LOCAL_STORAGE_KEY = "contacts"
@@ -23,8 +26,9 @@ function App() {
   };
 
   useEffect(() => {
-    const retrievedContacts = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY))
-    if (retrievedContacts) setContacts(retrievedContacts)
+    // const retrievedContacts = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY))
+    // if (retrievedContacts) setContacts(retrievedContacts)
+
   }, [])
   
   useEffect(() => {
@@ -46,6 +50,11 @@ function App() {
                 getContactId={removeContactHandler}
               />
             )} />
+
+          <Route path="/contact/:id" component={ContactDetail}/>
+          <Route path="/delete/:id" render={(props) => (
+            <DeletePopup {...props} getContactId={removeContactHandler} />
+          )}/>
         </Switch>
       </Router>
     </div>
