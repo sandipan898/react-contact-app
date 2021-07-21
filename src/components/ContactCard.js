@@ -14,8 +14,13 @@ const ContactCard = ({contact, clickHandler}) => {
             </div>
             <Link to={{pathname: `/delete/${contact.id}`, state: {contactId: contact.id}}}>
                 <i className="trash alternate outline icon"
-                    style={{color: "red", marginTop:"7px"}}
+                    style={{color: "red", marginTop:"7px", }}
                     // onClick={() => clickHandler(contact.id)}
+                ></i>
+            </Link>
+            <Link to={{pathname: `/edit/${contact.id}`, state: {contact: contact}}}>
+                <i className="edit alternate outline icon"
+                    style={{color: "red", marginTop:"7px"}}
                 ></i>
             </Link>
         </div>
