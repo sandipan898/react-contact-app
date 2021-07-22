@@ -1,0 +1,19 @@
+{
+  "contacts": [
+    {
+      "id": "4b9e391b-3c72-4712-af21-d5e631c1c7be",
+      "name": "Sandipan",
+      "email": "sandipan@mail.com"
+    },
+    {
+      "id": "d0a60b08-ec8d-4dbf-adff-d1b2d9dc8ab7",
+      "name": "Sam",
+      "email": "sam@gmail.com"
+    },
+    {
+      "id": "a86bb5d9-97bc-4742-bb5b-9c11d68af722",
+      "name": "Max",
+      "email": "max@gmail.com"
+    }
+  ]
+}
