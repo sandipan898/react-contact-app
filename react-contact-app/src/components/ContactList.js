@@ -23,11 +23,11 @@ const ContactList = (props) => {
             <h2>
                 Contact List
                 <Link to="/add">
-                    <button className="ui button blue right">Add Contact</button>
+                    <button style={{float: "right"}} className="ui button blue right">Add Contact</button>
                 </Link>
             </h2>
             <div className="ui search">
-                <div className="ui icon input">
+                <div style={{width: "100%"}} className="ui icon input">
                     <input type="text" placeholder="Search Contacts"
                         ref={inputEl} 
                         className="prompt" value={props.term}

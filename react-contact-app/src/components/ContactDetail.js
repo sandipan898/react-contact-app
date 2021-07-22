@@ -5,10 +5,11 @@ import user from "../images/user.png";
 const ContactDetail = (props) => {
     const { name, email } = props.location.state.contact;
     return (
-        <div className="main center">
+        <div style={{alignItems: "center", alignContent: "center"}} className="ui main center">
             <div className="ui card centered">
                 <div className="image">
                     <img src={user} alt="user" />
+                    <hr />
                 </div>
                 <div className="content">
                     <div className="header">{name}</div>
