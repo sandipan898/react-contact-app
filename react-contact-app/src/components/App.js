@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.css';
 import { uuid } from 'uuidv4';
@@ -12,7 +12,7 @@ import DeletePopup from './DeletePopup';
 import EditContact from './EditContact';
 
 function App() {
-  const LOCAL_STORAGE_KEY = "contacts"
+  // const LOCAL_STORAGE_KEY = "contacts"
   const [contacts, setContacts] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [searchResult, setSearchResult] = useState([]);
@@ -36,7 +36,7 @@ function App() {
     console.log(response.data)
     const { id, name, email } = response.data;
     setContacts(contacts.map((contact) => {
-      return contact.id === id ? {...response.data.contact} :  contact
+      return contact.id === id ? {...response.data} :  contact
     }));
   }
 
@@ -49,7 +49,6 @@ function App() {
   };
 
   const searchHandler = (searchTerm) => {
-    console.log(searchTerm)
     setSearchTerm(searchTerm)
     if (searchTerm !== "") {
       const newContactList = contacts.filter((contact) => {
@@ -95,7 +94,7 @@ function App() {
           )} />
           
           <Route path="/" exact render={(props) => (
-              <ContactList {...props} contacts={ contacts } 
+              <ContactList {...props} contacts={searchTerm.length < 1 ? contacts : searchResult } 
                 getContactId={removeContactHandler}
                 term={searchTerm}
                 searchKeyword={searchHandler}

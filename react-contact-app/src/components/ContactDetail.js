@@ -5,7 +5,7 @@ import user from "../images/user.png";
 const ContactDetail = (props) => {
     const { name, email } = props.location.state.contact;
     return (
-        <div className="main">
+        <div className="main center">
             <div className="ui card centered">
                 <div className="image">
                     <img src={user} alt="user" />
